@@ -12,7 +12,7 @@ CMAKE_MAJOR_VERSION=3.6
 PYTHON_VERSION=2.7.12
 GCC_LIBSTDCXX_VERSION=4.8.2
 ZLIB_VERSION=1.2.11
-OPENSSL_VERSION=1.0.2k
+OPENSSL_VERSION=1.0.2n
 CURL_VERSION=7.54.0
 SQLITE_VERSION=3150100
 SQLITE_YEAR=2016
@@ -84,7 +84,7 @@ cd /etc/yum.repos.d
 run curl -LOS http://people.centos.org/tru/devtools-2/devtools-2.repo
 cd /
 run yum install -y devtoolset-2-gcc devtoolset-2-gcc-c++ devtoolset-2-binutils \
-	make file diffutils patch perl bzip2 which zlib-devel
+	make file diffutils patch perl bzip2 which zlib-devel bison git
 source /opt/rh/devtoolset-2/enable
 
 
@@ -124,7 +124,7 @@ if ! eval_bool "$SKIP_SYSTEM_CURL"; then
 	# support the HTTPS crypto suite on https://curl.haxx.se.
 	download_and_extract curl-$CURL_VERSION.tar.bz2 \
 		curl-$CURL_VERSION \
-		http://curl.askapache.com/download/curl-$CURL_VERSION.tar.bz2
+		https://curl.askapache.com/curl-$CURL_VERSION.tar.bz2
 
 	(
 		activate_holy_build_box_deps_installation_environment

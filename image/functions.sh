@@ -38,7 +38,7 @@ function download_and_extract()
 
 	if [[ ! -e "/tmp/$BASENAME" ]]; then
 		run rm -f "/tmp/$BASENAME.tmp"
-		run curl --fail -L -o "/tmp/$BASENAME.tmp" "$URL"
+		run curl --fail -L -k -o "/tmp/$BASENAME.tmp" "$URL"
 		run mv "/tmp/$BASENAME.tmp" "/tmp/$BASENAME"
 	fi
 	if [[ "$URL" =~ $regex ]]; then
